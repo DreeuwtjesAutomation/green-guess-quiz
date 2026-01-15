@@ -35,13 +35,16 @@ export function QuizCard({ question, onAnswer, onNext }: QuizCardProps) {
   }, [onNext]);
 
   return (
-    <div className="space-y-8 animate-fade-in">
+    <div className="space-y-6">
       <PlantImage imageUrl={question.imageUrl} alt="Mystery plant to identify" />
       
+      <div className="text-center opacity-0 animate-fade-in" style={{ animationDelay: "100ms" }}>
+        <p className="text-muted-foreground text-sm font-medium uppercase tracking-wide">
+          Identify this plant
+        </p>
+      </div>
+
       <div className="space-y-3">
-        <h3 className="text-center font-heading text-xl text-muted-foreground mb-6">
-          What is this plant?
-        </h3>
         {question.options.map((option, index) => (
           <AnswerOption
             key={option}
@@ -58,11 +61,11 @@ export function QuizCard({ question, onAnswer, onNext }: QuizCardProps) {
       </div>
 
       {showFeedback && (
-        <div className="space-y-4">
+        <div className="space-y-4 pt-2">
           <FeedbackMessage isCorrect={isCorrect} correctAnswer={question.correctAnswer} />
           <Button
             onClick={handleNext}
-            className="w-full gap-2"
+            className="w-full gap-2 rounded-xl h-12"
             size="lg"
           >
             Continue

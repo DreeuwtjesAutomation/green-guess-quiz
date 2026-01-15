@@ -39,17 +39,15 @@ export function Quiz() {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="container max-w-2xl mx-auto px-4 py-8">
-        <header className="text-center mb-8 animate-fade-in">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
-            <Leaf className="h-8 w-8 text-primary" />
+      <div className="container max-w-md mx-auto px-5 py-8">
+        <header className="text-center mb-10 opacity-0 animate-fade-in">
+          <div className="inline-flex items-center gap-2 text-primary mb-4">
+            <Leaf className="h-5 w-5" strokeWidth={2} />
+            <span className="text-sm font-semibold uppercase tracking-wider">Plant Quiz</span>
           </div>
-          <h1 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-2">
-            Plant Identification Quiz
+          <h1 className="font-heading text-2xl md:text-3xl text-foreground">
+            Name That Plant
           </h1>
-          <p className="text-muted-foreground">
-            Test your botanical knowledge
-          </p>
         </header>
 
         {isComplete ? (
@@ -73,13 +71,6 @@ export function Quiz() {
             />
           </div>
         )}
-
-        <footer className="mt-12 pt-8 border-t border-border text-center">
-          <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-            <Leaf className="h-4 w-4 text-primary" />
-            Learn to identify plants from around the world
-          </p>
-        </footer>
       </div>
     </div>
   );

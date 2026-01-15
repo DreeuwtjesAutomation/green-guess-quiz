@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Leaf, RotateCcw, Trophy, Star } from "lucide-react";
+import { RotateCcw, Trophy } from "lucide-react";
 
 interface QuizResultsProps {
   score: number;
@@ -11,46 +11,32 @@ export function QuizResults({ score, totalQuestions, onRestart }: QuizResultsPro
   const percentage = Math.round((score / totalQuestions) * 100);
   
   const getMessage = () => {
-    if (percentage === 100) return "Perfect! You're a true botanist!";
-    if (percentage >= 80) return "Excellent! You really know your plants!";
-    if (percentage >= 60) return "Good job! Keep learning about plants!";
-    if (percentage >= 40) return "Not bad! There's more to discover!";
+    if (percentage === 100) return "Perfect score! You're a true botanist.";
+    if (percentage >= 80) return "Excellent! You really know your plants.";
+    if (percentage >= 60) return "Good job! Keep learning.";
+    if (percentage >= 40) return "Not bad! Room to grow.";
     return "Keep exploring the botanical world!";
   };
 
-  const getStars = () => {
-    if (percentage >= 80) return 3;
-    if (percentage >= 50) return 2;
-    return 1;
-  };
-
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center animate-fade-in">
-      <div className="relative mb-8">
-        <div className="w-32 h-32 rounded-full bg-secondary flex items-center justify-center">
-          <Trophy className="h-16 w-16 text-primary" />
-        </div>
-        <div className="absolute -top-2 -right-2 flex gap-1">
-          {Array.from({ length: getStars() }).map((_, i) => (
-            <Star key={i} className="h-6 w-6 text-accent fill-accent animate-scale-in" style={{ animationDelay: `${i * 200}ms` }} />
-          ))}
-        </div>
+    <div className="flex flex-col items-center justify-center min-h-[50vh] text-center opacity-0 animate-fade-in">
+      <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center mb-6">
+        <Trophy className="h-10 w-10 text-primary" strokeWidth={1.5} />
       </div>
 
-      <h2 className="font-heading text-4xl md:text-5xl font-bold text-foreground mb-4">
-        Quiz Complete!
+      <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-2">
+        Quiz Complete
       </h2>
       
-      <p className="text-lg text-muted-foreground mb-6 flex items-center gap-2">
-        <Leaf className="h-5 w-5 text-primary" />
+      <p className="text-muted-foreground mb-8 max-w-xs">
         {getMessage()}
       </p>
 
-      <div className="bg-card border border-border rounded-xl p-8 mb-8 shadow-lg">
-        <p className="text-6xl font-heading font-bold text-primary mb-2">
+      <div className="bg-card rounded-2xl px-12 py-8 mb-8 shadow-card">
+        <p className="text-5xl font-heading text-primary mb-1">
           {score}/{totalQuestions}
         </p>
-        <p className="text-muted-foreground">
+        <p className="text-sm text-muted-foreground">
           {percentage}% correct
         </p>
       </div>
@@ -58,10 +44,10 @@ export function QuizResults({ score, totalQuestions, onRestart }: QuizResultsPro
       <Button
         onClick={onRestart}
         size="lg"
-        className="gap-2 text-lg px-8"
+        className="gap-2 rounded-full px-8"
       >
-        <RotateCcw className="h-5 w-5" />
-        Play Again
+        <RotateCcw className="h-4 w-4" />
+        Try Again
       </Button>
     </div>
   );
