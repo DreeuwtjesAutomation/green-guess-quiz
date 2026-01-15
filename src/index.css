@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -48,7 +48,7 @@
     --sidebar-border: 0 0% 92%;
     --sidebar-ring: 152 45% 42%;
 
-    --font-heading: 'DM Serif Display', serif;
+    --font-heading: 'DM Sans', sans-serif;
     --font-body: 'DM Sans', sans-serif;
   }
 
