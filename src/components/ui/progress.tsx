@@ -9,7 +9,7 @@ const progressVariants = cva(
     variants: {
       variant: {
         default: "bg-secondary h-4",
-        botanical: "bg-muted border border-border h-2",
+        botanical: "bg-muted h-1.5",
       },
     },
     defaultVariants: {

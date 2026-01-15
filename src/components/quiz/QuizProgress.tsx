@@ -1,5 +1,4 @@
 import { Progress } from "@/components/ui/progress";
-import { Leaf } from "lucide-react";
 
 interface QuizProgressProps {
   currentQuestion: number;
@@ -11,19 +10,16 @@ export function QuizProgress({ currentQuestion, totalQuestions, score }: QuizPro
   const progressPercentage = ((currentQuestion) / totalQuestions) * 100;
 
   return (
-    <div className="w-full space-y-4 animate-fade-in">
+    <div className="w-full space-y-3 opacity-0 animate-fade-in">
       <div className="flex items-center justify-between text-sm">
-        <div className="flex items-center gap-2 text-muted-foreground">
-          <Leaf className="h-4 w-4 text-primary" />
-          <span className="font-medium">
-            Question {currentQuestion + 1} of {totalQuestions}
-          </span>
-        </div>
-        <div className="flex items-center gap-2 font-medium text-primary">
-          <span>Score: {score}</span>
-        </div>
+        <span className="text-muted-foreground font-medium">
+          {currentQuestion + 1} of {totalQuestions}
+        </span>
+        <span className="font-semibold text-primary">
+          {score} {score === 1 ? 'point' : 'points'}
+        </span>
       </div>
-      <Progress value={progressPercentage} variant="botanical" className="h-2" />
+      <Progress value={progressPercentage} variant="botanical" />
     </div>
   );
 }
