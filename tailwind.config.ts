@@ -14,7 +14,7 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['DM Sans', 'sans-serif'],
+        heading: ['Send Flowers', 'cursive'],
         body: ['DM Sans', 'sans-serif'],
       },
       colors: {
